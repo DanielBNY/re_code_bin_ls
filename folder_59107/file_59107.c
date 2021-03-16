@@ -3,7 +3,7 @@ int64_t function_e6e3(int64_t a1, int64_t a2) {
     int64_t v1 = __readfsqword(40); // 0xe6f6
     int64_t v2; // 0xe6e3
     int64_t v3; // 0xe6e3
-    int64_t v4 = function_4a80(a1, a2, v2, v3); // 0xe706
+    int64_t v4 = strcmp(a1, a2, v2, v3); // 0xe706
     int64_t v5 = v4 & 0xffffffff; // 0xe70b
     int64_t result = v5; // 0xe710
     char v6; // 0xe6e3
@@ -373,7 +373,7 @@ int64_t function_e6e3(int64_t a1, int64_t a2) {
             return result;
         }
         // 0xeac1
-        function_48e0();
+        __stack_chk_fail();
         v11 = v10;
       lab_0xeac6:
         // 0xeac6
@@ -492,7 +492,7 @@ int64_t function_e6e3(int64_t a1, int64_t a2) {
     v31 = v30;
     v32 = v27;
     if (v27 == v30) {
-        int64_t v33 = function_4770(v19, (char *)v20, v27); // 0xea99
+        int64_t v33 = strncmp(v19, (char *)v20, v27); // 0xea99
         v31 = v27;
         v32 = v27;
         if ((int32_t)v33 != 0) {

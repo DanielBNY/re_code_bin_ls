@@ -25,9 +25,9 @@ int64_t function_e1d3(int64_t a1, int64_t a2, int64_t a3, int64_t a4) {
         // 0xe1e3
         return 0;
     }
-    int64_t v2 = function_4cc0(a1, "system.posix_acl_access", 0, 0); // 0xe207
+    int64_t v2 = getxattr(a1, "system.posix_acl_access", 0, 0); // 0xe207
     if (v2 < 0) {
-        int32_t v3 = *(int32_t *)function_4760(); // 0xe225
+        int32_t v3 = *(int32_t *)__errno_location(); // 0xe225
         if (v3 != 61) {
             // 0xe22c
             return -((function_17230(v3) % 256)) & 0xffffffff;
@@ -44,12 +44,12 @@ int64_t function_e1d3(int64_t a1, int64_t a2, int64_t a3, int64_t a4) {
         // 0xe1e3
         return 0;
     }
-    uint64_t v4 = function_4cc0(a1, "system.posix_acl_default", 0, 0); // 0xe26e
+    uint64_t v4 = getxattr(a1, "system.posix_acl_default", 0, 0); // 0xe26e
     if (v4 >= 0) {
         // 0xe278
         return v4 != 0;
     }
-    int32_t v5 = *(int32_t *)function_4760(); // 0xe285
+    int32_t v5 = *(int32_t *)__errno_location(); // 0xe285
     if (v5 != 61) {
         // 0xe22c
         return -((function_17230(v5) % 256)) & 0xffffffff;

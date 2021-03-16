@@ -1,16 +1,3 @@
-// Address range: 0x13283 - 0x132d0
-int64_t function_13283(int64_t a1, int64_t a2, int64_t a3, int64_t a4, int64_t a5, int64_t a6) {
-    int64_t v1 = __readfsqword(40); // 0x13288
-    char v2 = 0; // bp-17, 0x13298
-    int64_t result = function_119f0((int32_t)a1, a2, (int32_t)a3, a4, 0, (int64_t)&v2, a5, a6, (int64_t)&g30, (int64_t)&g30, (int64_t)&g30); // 0x132a9
-    if (v1 != __readfsqword(40)) {
-        // 0x132c5
-        return function_48e0(a1);
-    }
-    // 0x132c0
-    return result;
-}
-
 // Address range: 0x17033 - 0x170d6
 int64_t function_17033(int64_t a1, int64_t a2, int64_t result) {
     if (a1 == 0) {
@@ -23,7 +10,7 @@ int64_t function_17033(int64_t a1, int64_t a2, int64_t result) {
         return 0;
     }
     // 0x1705a
-    if (function_4780(a2, result) != 0) {
+    if (localtime_r(a2, result) != 0) {
         // 0x1706a
         if ((char)function_16df0(a1, result) != 0) {
             // 0x17079
@@ -41,5 +28,18 @@ int64_t function_17033(int64_t a1, int64_t a2, int64_t result) {
     }
     // 0x1707f
     return 0;
+}
+
+// Address range: 0x13283 - 0x132d0
+int64_t function_13283(int64_t a1, int64_t a2, int64_t a3, int64_t a4, int64_t a5, int64_t a6) {
+    int64_t v1 = __readfsqword(40); // 0x13288
+    char v2 = 0; // bp-17, 0x13298
+    int64_t result = function_119f0((int32_t)a1, a2, (int32_t)a3, a4, 0, (int64_t)&v2, a5, a6, (int64_t)&g30, (int64_t)&g30, (int64_t)&g30); // 0x132a9
+    if (v1 != __readfsqword(40)) {
+        // 0x132c5
+        return __stack_chk_fail(a1);
+    }
+    // 0x132c0
+    return result;
 }
 
